@@ -2,7 +2,7 @@ const bcrypt = require('bcrypt');
 const mongoose = require('mongoose');
 const { type } = require('os');
 
-const mySchema = new mySchema.conect({
+const mySchema = new mongoose.conect({
     name:{
         type:String,
         require:true,
@@ -37,6 +37,8 @@ mySchema.methods.ispasscorrect = async (pass ) =>
    return  await bcrypt.compare(pass, this.password);
 }
  
+const user = user.model("user" , mySchema);
+module.exports = user;
  
 
  
