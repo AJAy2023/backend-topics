@@ -1,15 +1,15 @@
 const express =  require('express')
 const app = express()
 const ratelimit = require('express-rate-limit');
-const { STATUS_CODES } = require('http');
+const { STATUS_CODES } = require('http');   
 app.use(express.json());
 const port = 8000
 
 const  limiter = ratelimit(
     {
         
-       windowMs:60*60*1000,
-       max:5,
+       windowMs:1*60*1000,
+       max:3,
        STATUS_CODES:429,
        message:"to many request from same  IP address"
     }
