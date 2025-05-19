@@ -3,13 +3,15 @@ const connectDB = require("./db");
 const User = require("./user");
 const app = express();
 const registerdata = require("./regitser");
+const userdata = require("./getall");
 
 // calling the db 
 connectDB();
 const PORT=5000;
 
 app.use(express.json());
-app.use('/register', registerdata);
+app.use('/', registerdata);
+app.use('/', userdata);
 
 
 app.get('/', (req, res)=>{
